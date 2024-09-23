@@ -33,5 +33,5 @@ pipeline {
                 emailext body: 'Check console output in Jenkins', to: "paulmwendwamaingi@gmail.com", subject: 'Build Failed in Jenkins: IP1'
             }
         }
-    }
+    } 
 }
