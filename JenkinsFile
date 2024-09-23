@@ -28,14 +28,14 @@ pipeline {
     post{
         success{ //send email and slack message on success
             script{
-                slackSend(channel: "testing-ip1", message: "Jenkins pipeline passed without errors! Running Build #${env.BUILD_ID} on ${env.JENKINS_URL}", color:"good")
-                emailext body: "All is well!, Running Build #${env.BUILD_ID} on ${env.JENKINS_URL}", to: "paulmwendwamaingi@gmail.com", subject: "Build Passed in Jenkins: IP1"
+                slackSend(channel: "testing-ip1", message: "Jenkins pipeline passed without errors! Running Build #${env.BUILD_ID} on https://paulmip1-7a63b1227cbc.herokuapp.com/", color:"good")
+                emailext body: "All is well!, Running Build #${env.BUILD_ID} on https://paulmip1-7a63b1227cbc.herokuapp.com/", to: "paulmwendwamaingi@gmail.com", subject: "Build Passed in Jenkins: IP1"
             }
         } 
         failure{ //send email and slasck message on failure 
             script{
-                slackSend(channel: "testing-ip1", message: "Jenkins pipeline failed! Running Build #${env.BUILD_ID} on ${env.JENKINS_URL}", color:"danger")
-                emailext body: "Check console output in Jenkins, Running Build #${env.BUILD_ID} on ${env.JENKINS_URL}", to: "paulmwendwamaingi@gmail.com", subject: 'Build Failed in Jenkins: IP1'
+                slackSend(channel: "testing-ip1", message: "Jenkins pipeline failed! Running Build #${env.BUILD_ID}", color:"danger")
+                emailext body: "Check console output in Jenkins, Running Build #${env.BUILD_ID}", to: "paulmwendwamaingi@gmail.com", subject: 'Build Failed in Jenkins: IP1'
             }
         } 
     } 
