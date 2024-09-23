@@ -1,17 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage ('install npm') {
+        stage ('install npm') { //install npm from shell
             steps{
                 sh 'npm install'
             }
         }
-        stage ('clone repo') {
+        stage ('clone repo') { //clone repo from github
             steps{
                 git url: "https://github.com/pmaingi-moringa/gallery.git", branch: "master"
             }
         }
-        stage ('run tests') {
+        stage ('run tests') { //run npm test on cloned repo
             steps{ 
                 sh 'npm test'
             }
