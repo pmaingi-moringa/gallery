@@ -9,7 +9,7 @@ pipeline {
         }
         stage ('Build') { //install npm
             steps{
-                sh 'kill -9 5000' //stop any process running on port 5000
+                sh 'kill 5000' //stop any process running on port 5000
                 sleep 5
                 sh 'npm install'
             }
