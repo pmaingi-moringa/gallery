@@ -12,7 +12,7 @@ pipeline {
                 
                 sh 'npm install'
                 sleep 5
-                sh 'npm start'
+                sh 'npm start &'
             }
         }
         stage ('Run tests') { //run npm test on cloned repo
