@@ -12,11 +12,6 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage ('Switch to Test Branch') { //switch to Test Branch
-            steps{
-                git branch: 'test', 
-            }
-        }
         stage ('Run tests') { //run npm test on cloned repo
             steps{ 
                 sh 'npm test'
