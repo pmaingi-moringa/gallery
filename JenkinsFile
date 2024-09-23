@@ -10,8 +10,6 @@ pipeline {
         stage ('Build') { //install npm, mocha and chai
             steps{
                 sh 'npm install'
-                sh 'npx mocha' //install mocha for tests
-                sh 'npm install chai' //install chai for tests to run
             }
         }
         stage ('Run tests') { //run npm test on cloned repo
