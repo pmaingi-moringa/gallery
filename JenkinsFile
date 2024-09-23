@@ -18,4 +18,11 @@ pipeline {
             
         }
     }
+    post{
+        success{
+            script{
+                slackSend(channel: "ip1-devops007", message: "Jenkins pipeline communication success!")
+            }
+        }
+    }
 }
