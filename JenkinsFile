@@ -17,11 +17,6 @@ pipeline {
                 sh 'npm test'
             }
         }
-        stage ('Deploy in Heroku') {
-            steps{
-                echo 'TBD on Heroku'
-            }
-        }
     }
     post{
         success{
