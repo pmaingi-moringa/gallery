@@ -7,13 +7,18 @@ pipeline {
                 git url: "https://github.com/pmaingi-moringa/gallery.git", branch: "master"
             }
         }
-        stage ('Build') { //install npm, mocha and chai
+        stage ('Build') { //install npm, psmisc (for killing processes)
             steps{
+                sleep 8
                 sh 'npm install'
+                sh 'sudo apt-get install -y psmisc'
             }
         }
         stage ('Start App') { //start application
             steps{
+                echo 'Kill any process using port 5000'
+                sh 'fsuer -k 5000/tcp || true'
+
                 echo 'Start App...'
                 sh 'npm start &'
             }
