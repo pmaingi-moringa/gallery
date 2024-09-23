@@ -7,28 +7,30 @@ pipeline {
                 git url: "https://github.com/pmaingi-moringa/gallery.git", branch: "master"
             }
         }
-        stage ('Build') { //install npm from shell
+        stage ('Build') { //install npm, mocha and chai
             steps{
                 sh 'npm install'
+                sh 'npx mocha' //install mocha for tests
+                sh 'npm install chai' //install chai for tests to run
             }
         }
         stage ('Run tests') { //run npm test on cloned repo
             steps{ 
-                echo 'run tests'
+                sh 'npm test'
             }
         }
     }
     post{
-        success{
+        success{ //send email and slack message on success
             script{
                 slackSend(channel: "testing-ip1", message: "Jenkins pipeline passed without errors!", color:"good")
-                mail body: 'All is well!', to: "paul.maingi@student.moringaschool.com", subject: 'Build Passed in Jenkins: IP1'
+                emailext body: 'All is well!', to: "paul.maingi@student.moringaschool.com", subject: 'Build Passed in Jenkins: IP1'
             }
         }
-        failure{
+        failure{ //send email and slasck message on failure
             script{
                 slackSend(channel: "testing-ip1", message: "Jenkins pipeline failed!", color:"danger")
-                mail body: 'Check console output in Jenkins', to: "paul.maingi@student.moringaschool.com", subject: 'Build Failed in Jenkins: IP1'
+                emailext body: 'Check console output in Jenkins', to: "paul.maingi@student.moringaschool.com", subject: 'Build Failed in Jenkins: IP1'
             }
         }
     }
