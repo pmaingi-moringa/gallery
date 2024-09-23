@@ -11,10 +11,7 @@ pipeline {
         }
         stage ('clone repo') {
             steps{
-                git{
-                    url: "https://github.com/pmaingi-moringa/gallery.git",
-                    branch: "master"
-                }
+                git url: "https://github.com/pmaingi-moringa/gallery.git", branch: "master"
             }
         }
         stage ('run tests') {
