@@ -9,14 +9,7 @@ pipeline {
         }
         stage ('Build') { //install npm
             steps{
-                sh 'bash -' //run shell as root
-                sh 'chown -R 1000'
-                sh 'sudo fuser -n tcp -k 5000' //kill processes using port 5000
-
-
                 sh 'npm install'
-                sleep 5
-                sh 'npm start &'
             }
         }
         stage ('Run tests') { //run npm test on cloned repo
