@@ -5,7 +5,9 @@ pipeline {
     }
     stages {
         stage ('install npm') {
-            steps{sh 'npm install'}
+            steps{
+                sh 'npm install'
+            }
         }
         stage ('clone repo') {
             steps{
@@ -16,16 +18,20 @@ pipeline {
             }
         }
         stage ('run tests') {
-            steps{ sh 'npm test'}
+            steps{ 
+                sh 'npm test'
+            }
         }
         stage ('Deploy in Heroku') {
-            steps{}
+            steps{
+                echo 'TBD on Heroku'
+            }
         }
     }
     post{
         success{
             script{
-                slackSend(channel: "ip1-devops007", message: "Jenkins pipeline communication success!")
+                slackSend(channel: "testing-ip1", message: "Jenkins pipeline communication success!")
             }
         }
     }
