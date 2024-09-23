@@ -29,7 +29,7 @@ pipeline {
                 slackSend(channel: "testing-ip1", message: "Jenkins pipeline passed without errors!")
             }
         }
-        success{
+        failure{
             script{
                 slackSend(channel: "testing-ip1", message: "Jenkins pipeline failed!")
             }
