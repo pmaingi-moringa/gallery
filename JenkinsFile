@@ -27,7 +27,7 @@ pipeline {
         failure{
             script{
                 slackSend(channel: "testing-ip1", message: "Jenkins pipeline failed!", color:"danger")
-                emailext body: 'Check console output in Jenkins', to: "paul.maingi@student.moringaschool.com", subject: 'Build failed in Jenkins: IP1'
+                mail body: 'Check console output in Jenkins', from:'noreply@jenkins_maingi_ip1.com',  to: "paul.maingi@student.moringaschool.com", subject: 'Build failed in Jenkins: IP1'
             }
         }
     }
