@@ -9,15 +9,13 @@ pipeline {
         }
         stage ('Build') { //install npm
             steps{
+                sh 'kill -9 5000' //stop any process running on port 5000
                 sleep 5
                 sh 'npm install'
             }
         }
         stage ('Start App') { //start application
             steps{
-                echo 'Kill any process using port 5000'
-                sh 'fuser -k 5000/tcp || true'
-
                 echo 'Start App...'
                 sh 'npm start &'
             }
