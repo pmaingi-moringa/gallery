@@ -19,7 +19,9 @@ pipeline {
         }
         stage ('Deploy on Heroku') { //deploy on heroku
             steps{ 
-                echo 'Heroku part...'
+               withCredentials([usernameColonPassword(credentialsId: '8e800112-aeb6-4e7f-8160-52f257903c8f', variable: 'HEROKU_CREDENTIALS')]) {
+                   sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/paulmip1.git master' }
+
             }
         }
     }
