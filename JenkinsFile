@@ -17,6 +17,11 @@ pipeline {
                 sh 'npm test' 
             }
         }
+        stage ('Deploy on Heroku') { //deploy on heroku
+            steps{ 
+                echo 'Heroku part...'
+            }
+        }
     }
     post{
         success{ //send email and slack message on success
