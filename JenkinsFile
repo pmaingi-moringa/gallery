@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    tools{
+        nodejs 'node'
+    }
+    stages {
+        stage ('clone repo') {
+            url: "https://github.com/pmaingi-moringa/gallery.git"
+            branch: "main"
+        }
+        stage ('install npm') {
+            sh 'npm install'
+        }
+        stage ('run tests') {
+            sh 'npm test'
+        }
+        stage ('Deploy in Heroku') {
+        
+        }
+    }
+}
