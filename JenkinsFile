@@ -24,13 +24,13 @@ pipeline {
         success{ //send email and slack message on success
             script{
                 slackSend(channel: "testing-ip1", message: "Jenkins pipeline passed without errors!", color:"good")
-                emailext body: 'All is well!', to: "paul.maingi@student.moringaschool.com", subject: 'Build Passed in Jenkins: IP1'
+                emailext body: 'All is well!', to: "paulmwendwamaingi@gmail.com", subject: 'Build Passed in Jenkins: IP1'
             }
         }
         failure{ //send email and slasck message on failure 
             script{
                 slackSend(channel: "testing-ip1", message: "Jenkins pipeline failed!", color:"danger")
-                emailext body: 'Check console output in Jenkins', to: "paul.maingi@student.moringaschool.com", subject: 'Build Failed in Jenkins: IP1'
+                emailext body: 'Check console output in Jenkins', to: "paulmwendwamaingi@gmail.com", subject: 'Build Failed in Jenkins: IP1'
             }
         }
     }
