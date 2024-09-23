@@ -9,7 +9,7 @@ pipeline {
         }
         stage ('Build') { //install npm
             steps{
-                
+                sh 'bash -'
                 sh 'npm install'
                 sleep 5
                 sh 'npm start &'
