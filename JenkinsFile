@@ -21,12 +21,12 @@ pipeline {
     post{
         success{
             script{
-                slackSend(channel: "testing-ip1", message: "Jenkins pipeline passed without errors!")
+                slackSend(channel: "testing-ip1", message: "Jenkins pipeline passed without errors!", color:"good")
             }
         }
         failure{
             script{
-                slackSend(channel: "testing-ip1", message: "Jenkins pipeline failed!")
+                slackSend(channel: "testing-ip1", message: "Jenkins pipeline failed!", color:"danger"))
             }
         }
     }
