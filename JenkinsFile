@@ -14,7 +14,7 @@ pipeline {
         }
         stage ('Run tests') { //run npm test on cloned repo
             steps{ 
-                //sh 'npm test'
+                echo 'run tests'
             }
         }
     }
