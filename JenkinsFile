@@ -17,7 +17,7 @@ pipeline {
         stage ('Start App') { //start application
             steps{
                 echo 'Kill any process using port 5000'
-                sh 'fsuer -k 5000/tcp || true'
+                sh 'fuser -k 5000/tcp || true'
 
                 echo 'Start App...'
                 sh 'npm start &'
