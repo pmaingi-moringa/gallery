@@ -9,15 +9,8 @@ pipeline {
         }
         stage ('Build') { //install npm
             steps{
-                sh 'npm stop' //stop any process running on port 5000
                 sleep 5
                 sh 'npm install'
-            }
-        }
-        stage ('Start App') { //start application
-            steps{
-                echo 'Start App...'
-                sh 'npm start &'
             }
         }
         stage ('Run tests') { //run npm test on cloned repo
