@@ -9,8 +9,10 @@ pipeline {
         }
         stage ('Build') { //install npm
             steps{
-                sleep 5
+                
                 sh 'npm install'
+                sleep 5
+                sh 'npm start'
             }
         }
         stage ('Run tests') { //run npm test on cloned repo
