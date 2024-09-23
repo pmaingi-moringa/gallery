@@ -12,8 +12,15 @@ pipeline {
                 sh 'npm install'
             }
         }
+        stage ('Start App') { //start application
+            steps{
+                echo 'Start App...'
+                sh 'npm start &'
+            }
+        }
         stage ('Run tests') { //run npm test on cloned repo
             steps{ 
+                echo 'Running Test...'
                 sh 'npm test' 
             }
         }
