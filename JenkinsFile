@@ -22,6 +22,7 @@ pipeline {
         success{
             script{
                 slackSend(channel: "testing-ip1", message: "Jenkins pipeline passed without errors!", color:"good")
+                mail body: 'All is well!', from:'noreply@jenkins_maingi_ip1.com',  to: "paul.maingi@student.moringaschool.com", subject: 'Build Passed in Jenkins: IP1'
             }
         }
         failure{
