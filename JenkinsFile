@@ -24,7 +24,7 @@ pipeline {
 
             }
         }
-    }
+    } 
     post{
         success{ //send email and slack message on success
             script{
