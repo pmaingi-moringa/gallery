@@ -4,18 +4,18 @@ pipeline {
         nodejs 'node'
     }
     stages {
-        stage ('clone repo') {
-            url: "https://github.com/pmaingi-moringa/gallery.git"
-            branch: "main"
-        }
         stage ('install npm') {
             sh 'npm install'
+        }
+        stage ('clone repo') {
+            url: "https://github.com/pmaingi-moringa/gallery.git"
+            branch: "master"
         }
         stage ('run tests') {
             sh 'npm test'
         }
         stage ('Deploy in Heroku') {
-        
+            
         }
     }
 }
